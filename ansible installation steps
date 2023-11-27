@@ -1,0 +1,25 @@
+ANSIBLE INSTALLATION STEPS:UBUNTU
+=====================================
+1.sudo apt update and apt upgrade
+2.sudo apt-add-repository --yes --update ppa:ansible/ansible
+3.sudo apt update
+4.sudo apt install ansible -y
+5.sudo vi /etc/ansible/hosts ==>Add ip address of managed nodes
+6.ssh-keygen
+7.ssh-copy-id nodeipaddress
+instead of step 7
+7.cat /.ssh/id_rsa.pub of master node and copy the content and paste it in /.ssh/authorized_keys of Managed nodes
+
+JENKINS INSTALLATION STEPS:
+======================================
+1.sudo apt update
+2.sudo apt install openjdk-11-jre
+3.curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+4.echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+5.sudo apt-get update
+6.sudo apt-get install jenkins
+7.Security groups==>Add inbound traffic rules as TCP 8080 or All traffic
+8.sudo cat /var/lib/jenkins/secrets/initialAdminPassword
